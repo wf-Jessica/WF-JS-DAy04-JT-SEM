@@ -1,1 +1,30 @@
-htm
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input id="litres" type="number" name="" value="" placeholder="">
+<input id="km" type="number" name="" value="" placeholder="">
+<button id="btn">Go!</button>
+<p id="output"></p>
+
+<script>
+
+	var litres = parseInt(document.getElementById("litres").value);
+	var km = parseInt(document.getElementById("km").value);
+	
+	var btn = document.getElementById("btn");
+	btn.addEventListener("click", calculateFuel);
+	
+
+	function calculateFuel(){
+		 litres = parseInt(document.getElementById("litres").value);
+		 km = parseInt(document.getElementById("km").value);
+		var result = litres / km * 100;
+		document.getElementById("output").innerHTML = result;
+	}
+</script>
+</body>
+</html>
