@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<div>
+	<h2 style="text-align:center;">My To Do List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span><button id="btn" type="text">Add task</button></span>
+</div>
+<h4>Tasks</h4>
+<ul id="liste" >
+  <li>Do your Codereview</li>
+  <li>Get drunk</li>
+  <li>Drink coffee</li>
+  <li>Make coffee</li>
+  <li>Brush your theeth</li>
+  <li>Get up</li>
+</ul>
+
+	<script>
+	var btn= document.getElementById("btn");
+	btn.addEventListener('click', createListItem);
+
+	function createListItem() {
+	var x= document.getElementById("myInput").value;
+	var xy= document.createElement('li');
+	var t= document.createTextNode(x);
+	xy.appendChild(t);
+	document.getElementById("liste").appendChild(xy);
+	createCheck(xy);
+	createClose(xy);
+	
+  
+}
+function createCheck(xy){
+var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u2713");
+  span.className = "check";
+  span.appendChild(txt);
+  xy.appendChild(span);
+
+  
+}
+function createClose(xy) {
+
+var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  xy.appendChild(span);
+}
+
+	</script>
+</body>
+</html>
