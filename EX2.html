@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p id="string">..</p>
+<script>
+
+	var string = "I am a hero from World of Warcraft";
+	var number = 12;
+	string += string.substring(0,number)
+
+	function truncate(string, number){
+		document.getElementById("string").innerHTML = string;
+	}
+
+	truncate(string, number)
+</script>
+</body>
+</html>
