@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <input id="hilton"type="text" name="" value="" placeholder="">
+    <input id="marriott"type="text" name="" value="" placeholder="">
+    <input id="holidayinn"type="text" name="" value="" placeholder="">
+    <button id="btn">Go!</button>
+    <script>
+    	function HotelConstructor(name, rooms, booked, features) {
+    	    this.name = name;
+    	    this.rooms = rooms;
+    	    this.booked = booked;
+    	    this.features = features;
+    	    this.checkAvailability = function() {
+    	        return this.rooms - this.booked;
+    	    };
+    	    this.addNewfeatures = function(newfeatures) {
+    	        this.features.push(newfeatures);
+    	    };
+
+    	}
+
+    	var hiltonHotel = new HotelConstructor('Hilton', '9',Math.round(Math.random() * 10), ["Swimming Pool", "Sauna"]);
+    	var marriottHotel = new HotelConstructor('Marriott', '8',Math.round(Math.random() * 10), ["Tennis Court"]);
+    	var holidayinnHotel = new HotelConstructor('Holiday Inn', '7', Math.round(Math.random() * 10), ["Meeting Hall"]);
+
+    var btn = document.getElementById("btn");
+    btn.addEventListener("click", hotelInfo);
+
+    function compareHotels(rooms, booked) {
+        var freerooms = rooms - booked;
+        return freerooms;
+    }
+
+    function hotelInfo() {
+    	var hilton_rooms = document.getElementById("hilton").value;
+    	var marriott_rooms = document.getElementById("marriott").value;
+    	var holidayinn_rooms = document.getElementById("holidayinn").value;
+    	
+    	var hilton = document.getElementById("hilton");
+    	var marriott = document.getElementById("marriott");
+    	var holidayinn = document.getElementById("holidayinn");
+
+    	if (hilton_rooms > 0)
+    	 var freeroom = compareHotels(hiltonHotel.rooms, hiltonHotel.booked);
+			if (hilton_rooms > freeroom){
+				var btn_hilton = document.createElement("BUTTON")
+				btn_hilton.innerHTML = "I'll reserve Hilton!";                   
+				hilton.appendChild(btn_hilton); 
+			} 	
+			else{
+				var p_hilton = document.createElement("P");   
+				p_hilton.innerHTML = `Sorry, no free room for ${hilton_rooms} nights`;                   // 
+				hilton.appendChild(p_hilton);
+			}
+    	}
+
+    	if (marriott_rooms > 0){
+    	 var freeroom = compareHotels(marriottHotel.rooms, marriottHotel.booked);
+    	 			if (marriott_rooms > freeroom){
+    	 				var btn_marriott = document.createElement("BUTTON")
+    	 				btn_marriott.innerHTML = "I'll reserve Marriott!";                   
+    	 				marriott.appendChild(btn_marriott); 
+    	 			} 	
+    	 			else{
+    	 				var p_marriott = document.createElement("P");   
+    	 				p_marriott.innerHTML = `Sorry, no free room for ${marriott_rooms} nights`;                   // 
+    	 				marriott.appendChild(p_marriott);
+    	 			}
+    	     	}
+    	
+    	if (holidayinn_rooms > 0){
+    	 var freeroom = compareHotels(holidayinnHotel.rooms, holidayinnHotel.booked);
+    	 			if (holidayinn_rooms > freeroom){
+    	 				var btn_holidayinn = document.createElement("BUTTON")
+    	 				btn_holidayinn.innerHTML = "I'll reserve Holidayinn!";                   
+    	 				holidayinn.appendChild(btn_holidayinn); 
+    	 			} 	
+    	 			else{
+    	 				var p_holidayinn = document.createElement("P");   
+    	 				p_holidayinn.innerHTML = `Sorry, no free room for ${holidayinn_rooms} nights`;                   // 
+    	 				holidayinn.appendChild(p_holidayinn);
+    	 			}
+    	     	}
+    	}
+
+    
+
+    
+    </script>
+</body>
+
+</html>
