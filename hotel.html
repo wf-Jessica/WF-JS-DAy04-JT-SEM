@@ -30,7 +30,7 @@
     	var holidayinnHotel = new HotelConstructor('Holiday Inn', '7', Math.round(Math.random() * 10), ["Meeting Hall"]);
 
     var btn = document.getElementById("btn");
-    btn.addEventListener("click", hotelInfo);
+    btn.addEventListener(`click`, hotelInfo);
 
     function compareHotels(rooms, booked) {
         var freerooms = rooms - booked;
